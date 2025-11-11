@@ -1,0 +1,124 @@
+:root {
+  --calc-bg: #efefef;
+  --calc-bezel: #222;
+  --calc-lcd: #e4fbff;
+  --calc-text: #2b2b2b;
+  --calc-blue: #b9d1e3;
+  --calc-green: #a8e0a7;
+  --calc-red: #e19994;
+  --calc-outline-orange: #fbc17b;
+  --calc-outline-blue: #91c7ff;
+}
+
+.calculator-container {
+  border: 1px solid lightgray;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin: 2rem 10rem;
+  box-shadow: 0 0 0.25rem gray;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.w03-cal {
+  background: var(--calc-bg);
+  border-radius: 28px;
+  border: 3px solid var(--calc-bezel);
+  padding: 22px;
+  width: min(420px, 92vw);
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 72px));
+  grid-auto-rows: 72px;
+  gap: 14px;
+  box-shadow: inset 0 6px 0 rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.w03-lcd {
+  grid-column: 1 / -1;
+  height: 60px;
+  background: var(--calc-lcd);
+  border-radius: 16px;
+  border: 2px solid #9bd7de;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 16px;
+  font-size: 32px;
+  font-weight: 600;
+  color: #0e5058;
+  overflow: hidden;
+}
+
+.w03-btn {
+  border: none;
+  border-radius: 16px;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+  transition: transform 0.06s ease, box-shadow 0.06s ease, filter 0.2s;
+}
+
+.w03-btn:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+.w03-btn:disabled {
+  cursor: not-allowed;
+  filter: saturate(0.75) brightness(1.02);
+}
+
+.w03-btn-blue {
+  background: var(--calc-blue);
+}
+
+.w03-btn-green {
+  background: var(--calc-green);
+}
+
+.w03-btn-red {
+  background: var(--calc-red);
+}
+
+.w03-btn-yellow {
+  background: #ffe07d;
+}
+
+.w03-btn-eq {
+  outline: 4px solid var(--calc-outline-orange);
+  outline-offset: -4px;
+}
+
+.w03-btn-operator {
+  outline: 4px solid var(--calc-outline-blue);
+  outline-offset: -4px;
+  font-weight: 700;
+}
+
+.w03-cal::before {
+  content: "";
+  position: absolute;
+  left: 22px;
+  top: calc(22px + 60px + 14px + 72px);
+  width: calc((100% - 44px) - (72px + 14px) * 2);
+  height: calc((72px + 14px) * 4 - 14px);
+  border-radius: 14px;
+  outline: 4px solid var(--calc-outline-purple);
+  outline-offset: -6px;
+  pointer-events: none;
+}
+
+.w03-btn-active-red {
+  box-shadow: 0 2px 0 rgba(224, 109, 100, 0.5);
+}
+
+@media (max-width: 992px) {
+  .calculator-container {
+    margin: 1rem;
+  }
+}
